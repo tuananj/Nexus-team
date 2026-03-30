@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piltover MFA - Huy</title>
+    <style>
+        body { width: 320px; font-family: 'Segoe UI', sans-serif; margin: 0; background: #fff; }
+        .header { background: #1a73e8; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .header strong { font-size: 16px; letter-spacing: 1px; }
+        
+        #scanBtn { background: #fff; color: #1a73e8; border: none; padding: 6px 12px; border-radius: 4px; font-weight: bold; cursor: pointer; }
+
+        .account-item { padding: 15px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+        .info { flex-grow: 1; }
+        .name { font-size: 11px; color: #5f6368; text-transform: uppercase; margin-bottom: 4px; }
+        .code { font-size: 28px; font-weight: bold; color: #1a73e8; letter-spacing: 1px; }
+        
+        /* Vòng tròn đếm ngược */
+        .timer-pie { 
+            width: 24px; height: 24px; border-radius: 50%; 
+            /* Biến --p sẽ được cập nhật từ popup.js */
+            background: conic-gradient(#1a73e8 calc(var(--p)*1%), #e8eaed 0); 
+            display: inline-block;
+        }
+
+        .empty-state { padding: 40px 20px; text-align: center; color: #70757a; font-size: 14px; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <strong>PROJECT PILTOVER</strong>
+    <button id="scanBtn">➕ QUÉT MÃ</button>
+</div>
+
+<div id="account-list">
+    <div class="empty-state">Huy chưa có tài khoản nào.<br>Hãy nhấn <b>Quét mã</b> trên trang web!</div>
+</div>
+
+<div id="account-list"></div>
+<script src="jsqr.js"></script>
+<script src="popup.js"></script>
+
+</body>
+</html>

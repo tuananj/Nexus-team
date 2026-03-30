@@ -1,0 +1,8 @@
+{
+    "require": {
+        "chillerlan/php-qrcode": "^6.0",
+        "pragmarx/google2fa-qrcode": "^3.0",
+        "google/apiclient": "^2.19",
+        "phpmailer/phpmailer": "^7.0"
+    }
+}

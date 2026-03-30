@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Piltover Scanner - Huy",
+  "version": "1.0",
+  "description": "Quét mã QR và hiển thị OTP cho Project Piltover",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabs",
+    "storage"
+  ]
+}
