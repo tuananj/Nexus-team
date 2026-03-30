@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 require_once 'vendor/autoload.php';
 include "config.php";
 
@@ -10,10 +11,18 @@ if (session_status() === PHP_SESSION_NONE) {
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+=======
+require_once __DIR__ . '/vendor/autoload.php';
+include __DIR__ . '/config.php';
+
+session_set_cookie_params(0, '/');
+if (session_status() === PHP_SESSION_NONE) { session_start(); }
+>>>>>>> 0bb000fa (Update code moi nhat Nexus-team)
 
 $client = new Google_Client();
 $client->setClientId('892618548419-eskp0p76hc1qe7cqadl073ef2h8h7i45.apps.googleusercontent.com');
 $client->setClientSecret('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');
+<<<<<<< HEAD
 // KIỂM TRA LẠI: Link này phải khớp với Google Cloud Console của Huy
 $client->setRedirectUri('http://localhost/Nexus-team/google-callback.php');
 
@@ -21,11 +30,19 @@ if (isset($_GET['code'])) {
     $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
     
     // Nếu lấy token thành công
+=======
+// Phải khớp với login.php
+$client->setRedirectUri('http://localhost/Nexus-team/google-callback.php'); 
+
+if (isset($_GET['code'])) {
+    $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+>>>>>>> 0bb000fa (Update code moi nhat Nexus-team)
     if (!isset($token['error'])) {
         $client->setAccessToken($token);
         $google_oauth = new Google_Service_Oauth2($client);
         $google_account_info = $google_oauth->userinfo->get();
         
+<<<<<<< HEAD
         $email = $google_account_info->email;
         $name = $google_account_info->name;
 
@@ -71,3 +88,18 @@ if (isset($_GET['code'])) {
 function sendAlertEmail($userEmail, $userName) {
     // ... code PHPMailer cũ của Huy ...
 }
+=======
+        // Cấp quyền Session
+        $_SESSION['auth_username'] = $google_account_info->name;
+        $_SESSION['mfa_verified'] = true; 
+        $_SESSION['logged_in'] = true;
+
+        // CHỐT HẠ: Đẩy sang Welcome của Nexus-team
+        header("Location: http://localhost/Nexus-team/nexus/welcome.php");
+        exit();
+    }
+}
+// Nếu lỗi thì đẩy về trang Login của Demo
+header("Location: nexus/welcome.php"); 
+exit();
+>>>>>>> 0bb000fa (Update code moi nhat Nexus-team)

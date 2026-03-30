@@ -1,8 +1,13 @@
 {
     "require": {
         "chillerlan/php-qrcode": "^6.0",
+<<<<<<< HEAD
         "pragmarx/google2fa-qrcode": "^3.0",
         "google/apiclient": "^2.19",
         "phpmailer/phpmailer": "^7.0"
+=======
+        "pragmarx/google2fa": "^9.0",
+        "google/apiclient": "^2.19"
+>>>>>>> 0bb000fa (Update code moi nhat Nexus-team)
     }
 }
