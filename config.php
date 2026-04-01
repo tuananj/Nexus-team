@@ -1,9 +1,17 @@
 <?php
-$conn = new mysqli("localhost","root","","mfa_system");
+date_default_timezone_set("Asia/Ho_Chi_Minh");
 
-if($conn->connect_error){
+$conn = new mysqli("localhost", "root", "", "mfa_system");
+
+if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-session_start();
+if (!defined('MAIL_USERNAME')) {
+    define('MAIL_USERNAME', 'nguyenanhtuan261204@gmail.com');
+}
+
+if (!defined('MAIL_PASSWORD')) {
+    define('MAIL_PASSWORD', 'runh lqqy oyto nwpx');
+}
 ?>
